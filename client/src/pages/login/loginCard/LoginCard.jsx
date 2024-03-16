@@ -12,6 +12,7 @@ const LoginCard = ({ otpSentHandler, email, setEmail }) => {
     try {
       const json = await fetch(`${serverUrl}/api/v1/auth/send-otp`, {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
