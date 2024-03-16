@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import JobCard from "../../components/jobCard/JobCard";
 import { UserInfoContext } from "../../context/userInfoContext";
+import { serverUrl } from "../../utils/constant";
 
 const Home = () => {
   const { userInfo } = useContext(UserInfoContext);
@@ -12,7 +13,7 @@ const Home = () => {
   const getInternshipDetails = async function () {
     try {
       setIsFetching(true);
-      const json = await fetch(`/api/v1/jobs/`, {
+      const json = await fetch(`${serverUrl}/api/v1/jobs/`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -3,13 +3,14 @@ import noLogo from "../../assets/no-logo.svg";
 import { TbCashBanknote } from "react-icons/tb";
 import { GrUserExpert } from "react-icons/gr";
 import { useToast } from "@chakra-ui/react";
+import { serverUrl } from "../../utils/constant";
 
 const JobCard = ({ data, isJobApplied = false }) => {
   const [isApplied, setIsApplied] = useState(isJobApplied);
   const toast = useToast();
   const handleApplyTOJob = async (id) => {
     try {
-      const json = await fetch(`/api/v1/jobs`, {
+      const json = await fetch(`${serverUrl}/api/v1/jobs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

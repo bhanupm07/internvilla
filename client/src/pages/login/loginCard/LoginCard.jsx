@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useToast } from "@chakra-ui/react";
+import { serverUrl } from "../../../utils/constant";
 
 const LoginCard = ({ otpSentHandler, email, setEmail }) => {
   const toast = useToast();
@@ -9,7 +10,7 @@ const LoginCard = ({ otpSentHandler, email, setEmail }) => {
     e.preventDefault();
     // write async logic to check otp sent successfully or not
     try {
-      const json = await fetch("/api/v1/auth/send-otp", {
+      const json = await fetch(`${serverUrl}/api/v1/auth/send-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

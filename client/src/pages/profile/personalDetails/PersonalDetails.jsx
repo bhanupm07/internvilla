@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import InputComponent from "../../../components/InputElement/InputComponent";
 import { Avatar, Spinner, useToast } from "@chakra-ui/react";
 import { UserInfoContext } from "../../../context/userInfoContext";
+import { serverUrl } from "../../../utils/constant";
 
 const PersonalDetails = () => {
   const { userInfo, updateUserInfo } = useContext(UserInfoContext);
@@ -33,7 +34,7 @@ const PersonalDetails = () => {
   const handleUpdateUserInfo = async (field, value, coins) => {
     // Update user info in the database
     try {
-      const json = await fetch(`/api/v1/users/updateProfile`, {
+      const json = await fetch(`${serverUrl}/api/v1/users/updateProfile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

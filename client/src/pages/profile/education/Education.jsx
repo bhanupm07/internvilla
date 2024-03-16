@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useToast } from "@chakra-ui/react";
 import { UserInfoContext } from "../../../context/userInfoContext";
+import { serverUrl } from "../../../utils/constant";
 
 const Education = () => {
   const toast = useToast();
@@ -33,7 +34,7 @@ const Education = () => {
     e.preventDefault();
 
     try {
-      const json = await fetch(`/api/v1/users/addEducation`, {
+      const json = await fetch(`${serverUrl}/api/v1/users/addEducation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

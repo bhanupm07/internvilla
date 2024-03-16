@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
 import { UserInfoContext } from "../../../context/userInfoContext";
+import { serverUrl } from "../../../utils/constant";
 
 const Projects = () => {
   const toast = useToast();
@@ -23,7 +24,7 @@ const Projects = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const json = await fetch(`/api/v1/users/addProject`, {
+      const json = await fetch(`${serverUrl}/api/v1/users/addProject`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
