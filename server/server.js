@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = require("./app");
-// const cors = require("cors");
+const cors = require("cors");
 dotenv.config({});
 
-// app.use(cors());
+app.use(
+  cors({
+    origin: "https://internvilla.vercel.app",
+  })
+);
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
