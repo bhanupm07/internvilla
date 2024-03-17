@@ -1,14 +1,14 @@
 const express = require("express");
-// const cors = require("cors");
+const helmet = require("helmet");
 const app = express();
 app.use(express.json());
 
-// app.use(cors());
-app.options("/", (req, res) => {
+app.use(helmet());
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(204);
+  next();
 });
 
 const authRouter = require("./routes/authRoutes");
