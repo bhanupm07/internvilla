@@ -15,10 +15,7 @@ const LoginCard = ({ otpSentHandler, email, setEmail }) => {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Methods":
-            "HEAD, DELETE, POST, GET, OPTIONS, PUT, PATCH",
         },
-        credentials: true,
         body: JSON.stringify({ email }),
       });
       setIsLoading(true);
