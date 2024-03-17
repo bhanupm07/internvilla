@@ -26,6 +26,7 @@ const Projects = () => {
     try {
       const json = await fetch(`${serverUrl}/api/v1/users/addProject`, {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),

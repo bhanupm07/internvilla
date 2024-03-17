@@ -15,6 +15,7 @@ const Home = () => {
       setIsFetching(true);
       const json = await fetch(`${serverUrl}/api/v1/jobs/`, {
         method: "GET",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),

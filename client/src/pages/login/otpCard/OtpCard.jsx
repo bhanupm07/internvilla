@@ -21,6 +21,7 @@ const OtpCard = ({ email }) => {
     try {
       const res = await fetch(`${serverUrl}/api/v1/auth/verify-otp`, {
         method: "POST",
+        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
