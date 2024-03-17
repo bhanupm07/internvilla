@@ -4,7 +4,11 @@ const Footer = () => {
   return (
     <div className="bg-[#181326] text-sm text-gray-300 p-10 text-center mt-auto">
       <span>Assignment built by </span>
-      <a href="https://www.linkedin.com/in/bhanupm/" className="text-blue-400">
+      <a
+        href="https://www.linkedin.com/in/bhanupm/"
+        target="_blank"
+        className="text-blue-400"
+      >
         @Bhanu Prakash Mahant
       </a>
     </div>
