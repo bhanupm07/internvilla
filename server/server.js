@@ -7,6 +7,9 @@ dotenv.config({});
 app.use(
   cors({
     origin: "https://internvilla.vercel.app",
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH"],
+    credentials: true,
+    exposedHeaders: ["Set-Cookie"],
   })
 );
 // Connect to MongoDB
