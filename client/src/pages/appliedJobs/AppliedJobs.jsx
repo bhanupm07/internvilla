@@ -31,7 +31,9 @@ const AppliedJobs = () => {
         Your Applied Jobs
       </h1>
       {isLoading ? (
-        <Spinner size="xl" />
+        <div className="flex justify-center py-5">
+          <Spinner size="xl" />
+        </div>
       ) : (
         <main className="w-[90%] max-w-[500px] flex flex-col gap-5 items-center m-auto py-5">
           {appliedJobs.length > 0
