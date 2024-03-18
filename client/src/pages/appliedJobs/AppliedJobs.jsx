@@ -8,7 +8,6 @@ const AppliedJobs = () => {
   const fetchAppliedJobs = async () => {
     const json = await fetch(`${serverUrl}/api/v1/jobs/applied`, {
       method: "GET",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         authorization: localStorage.getItem("token"),

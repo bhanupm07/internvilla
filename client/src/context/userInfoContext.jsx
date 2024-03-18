@@ -36,7 +36,6 @@ export const UserInfoProvider = ({ children }) => {
   const fetchUserInfo = async (token) => {
     const response = await fetch(`${serverUrl}/api/v1/users/details`, {
       method: "GET",
-      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         Authorization: token,

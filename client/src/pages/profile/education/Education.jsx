@@ -36,7 +36,6 @@ const Education = () => {
     try {
       const json = await fetch(`${serverUrl}/api/v1/users/addEducation`, {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),
@@ -80,6 +79,20 @@ const Education = () => {
 
   return (
     <>
+      {userInfo?.education.map((education) => (
+        <div key={education._id} className="border-2 rounded-lg p-4 mb-2">
+          <p>Education Type: {education.type}</p>
+          <p>Name of School/College: {education.name}</p>
+          <p>
+            Start Date:{" "}
+            {education?.startDate ? formatDate(education.startDate) : "NA"}
+          </p>
+          <p>
+            End Date:{" "}
+            {education?.endDate ? formatDate(education.endDate) : "NA"}
+          </p>
+        </div>
+      ))}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-6">
         <div className="flex flex-col">
           <select
@@ -142,20 +155,6 @@ const Education = () => {
           Save
         </button>
       </form>
-      {userInfo?.education.map((education) => (
-        <div key={education._id} className="border-2 rounded-lg p-4 mb-2">
-          <p>Education Type: {education.type}</p>
-          <p>Name of School/College: {education.name}</p>
-          <p>
-            Start Date:{" "}
-            {education?.startDate ? formatDate(education.startDate) : "NA"}
-          </p>
-          <p>
-            End Date:{" "}
-            {education?.endDate ? formatDate(education.endDate) : "NA"}
-          </p>
-        </div>
-      ))}
     </>
   );
 };

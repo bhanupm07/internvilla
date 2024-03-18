@@ -36,7 +36,6 @@ const PersonalDetails = () => {
     try {
       const json = await fetch(`${serverUrl}/api/v1/users/updateProfile`, {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),
@@ -80,7 +79,6 @@ const PersonalDetails = () => {
         "https://api.cloudinary.com/v1_1/dxn1nqijs/image/upload",
         {
           method: "POST",
-          mode: "cors",
           body: imageForm,
         }
       );

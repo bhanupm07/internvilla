@@ -1,21 +1,8 @@
 const express = require("express");
-const helmet = require("helmet");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
-
-app.use(helmet());
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://internvilla.vercel.app"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,Content-type,Accept,X-Access-Token,X-Key"
-  );
-  next();
-});
 
 const authRouter = require("./routes/authRoutes");
 const userRouter = require("./routes/userRoutes");

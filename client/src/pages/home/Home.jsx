@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import JobCard from "../../components/jobCard/JobCard";
 import { UserInfoContext } from "../../context/userInfoContext";
 import { serverUrl } from "../../utils/constant";
+import { Spinner } from "@chakra-ui/react";
 
 const Home = () => {
   const { userInfo } = useContext(UserInfoContext);
@@ -15,8 +16,6 @@ const Home = () => {
       setIsFetching(true);
       const json = await fetch(`${serverUrl}/api/v1/jobs/`, {
         method: "GET",
-        mode: "cors",
-        // credentials: true,
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),
@@ -54,8 +53,9 @@ const Home = () => {
     internshipData.length > 0 ? (
       internshipData?.map((data, i) => <JobCard key={i} data={data} />)
     ) : (
-      <span className="text-center">
-        Please wait for a few seconds (you know 'render' takes time)
+      <span className="text-center flex flex-col gap-3 items-center">
+        <p>Please wait for a few seconds (you know 'render' takes time)</p>
+        <Spinner size="xl" />
       </span>
     );
 

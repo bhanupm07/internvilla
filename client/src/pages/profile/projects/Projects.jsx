@@ -26,7 +26,6 @@ const Projects = () => {
     try {
       const json = await fetch(`${serverUrl}/api/v1/users/addProject`, {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),
@@ -68,6 +67,23 @@ const Projects = () => {
   };
   return (
     <>
+      {userInfo?.projects?.map((project) => (
+        <div key={project._id} className="border-2 rounded-lg p-4 mb-2">
+          <p>Description: {project.description}</p>
+          <p>Project name: {project.name}</p>
+          {project.projectLink && (
+            <p>
+              {" "}
+              Link:{" "}
+              <a target="_blank" href={project.projectLink}>
+                {project.projectLink}
+              </a>
+            </p>
+          )}
+
+          <p>Solo Project: {project.soloProject ? "YES" : "NO"}</p>
+        </div>
+      ))}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-6">
         <div className="flex flex-col">
           <input
@@ -126,24 +142,6 @@ const Projects = () => {
           Save
         </button>
       </form>
-
-      {userInfo?.projects?.map((project) => (
-        <div key={project._id} className="border-2 rounded-lg p-4 mb-2">
-          <p>Description: {project.description}</p>
-          <p>Project name: {project.name}</p>
-          {project.projectLink && (
-            <p>
-              {" "}
-              Link:{" "}
-              <a target="_blank" href={project.projectLink}>
-                {project.projectLink}
-              </a>
-            </p>
-          )}
-
-          <p>Solo Project: {project.soloProject ? "YES" : "NO"}</p>
-        </div>
-      ))}
     </>
   );
 };

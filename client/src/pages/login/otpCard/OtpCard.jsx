@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useToast } from "@chakra-ui/react";
+import { Spinner, useToast } from "@chakra-ui/react";
 import { useContext } from "react";
 import { UserInfoContext } from "../../../context/userInfoContext";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,6 @@ const OtpCard = ({ email }) => {
     try {
       const res = await fetch(`${serverUrl}/api/v1/auth/verify-otp`, {
         method: "POST",
-        mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -74,7 +73,7 @@ const OtpCard = ({ email }) => {
         className="bg-buttonBg text-primary w-full mt-auto p-3 rounded-lg"
         type="submit"
       >
-        Verify
+        {isLoading ? <Spinner /> : "Verify"}
       </button>
     </form>
   );

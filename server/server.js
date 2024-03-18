@@ -2,16 +2,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = require("./app");
 const cors = require("cors");
+app.use(cors());
 dotenv.config({});
 
-app.use(
-  cors({
-    origin: "https://internvilla.vercel.app",
-    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "PATCH"],
-    // credentials: true,
-    exposedHeaders: ["Set-Cookie"],
-  })
-);
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
