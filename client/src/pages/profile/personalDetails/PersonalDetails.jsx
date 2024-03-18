@@ -231,7 +231,7 @@ const PersonalDetails = () => {
         {userInfo.github ? (
           <p>
             Github:{" "}
-            <a href={userInfo.linkedIn} target="_blank" rel="noreferrer">
+            <a href={userInfo.github} target="_blank" rel="noreferrer">
               {userInfo.github}
             </a>
           </p>
