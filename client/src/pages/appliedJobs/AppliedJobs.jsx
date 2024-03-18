@@ -27,7 +27,7 @@ const AppliedJobs = () => {
         Your Applied Jobs
       </h1>
       <main className="w-[90%] max-w-[500px] flex flex-col gap-5 items-center m-auto py-5">
-        {appliedJobs.map((appliedJob) => (
+        {appliedJobs?.map((appliedJob) => (
           <JobCard key={appliedJob._id} data={appliedJob} isJobApplied={true} />
         ))}
       </main>

@@ -79,7 +79,7 @@ const Education = () => {
 
   return (
     <>
-      {userInfo?.education.map((education) => (
+      {userInfo?.education?.map((education) => (
         <div key={education._id} className="border-2 rounded-lg p-4 mb-2">
           <p>Education Type: {education.type}</p>
           <p>Name of School/College: {education.name}</p>
