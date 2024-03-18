@@ -16,7 +16,7 @@ const Home = () => {
       const json = await fetch(`${serverUrl}/api/v1/jobs/`, {
         method: "GET",
         mode: "cors",
-        credentials: true,
+        // credentials: true,
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("token"),
